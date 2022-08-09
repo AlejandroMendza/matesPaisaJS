@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: border-box;
+}
+
+body{
+    background-image: url(/assets/background.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 4.5rem;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    text-shadow: 2px 2px maroon;
+    margin-right: 4rem;
+}
+
+/*estilos de cards*/
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto; }
+.container .card {
+      align-items: center;
+      width: 330px;
+      height: 430px;
+      border-radius: 8px;
+      box-shadow: 3px 3px 3px maroon;
+      overflow: hidden;
+      margin: 20px;
+      text-align: center;
+      transition: all 0.25s; }
+.container .card img {
+        height: 250px; }
+.container .card .titulocard {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 30px;
+        text-align: center;
+        color: #000000;
+        font-weight: bold;
+        text-shadow: 3px 3px 3px maroon; }
+.container .card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); }
