@@ -27,13 +27,13 @@ h1 {
     width: 100%;
     max-width: 1200px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     margin: auto; }
 .container .card {
       align-items: center;
       width: 330px;
       height: 430px;
+      background-color: white;
       border-radius: 8px;
       box-shadow: 3px 3px 3px maroon;
       overflow: hidden;

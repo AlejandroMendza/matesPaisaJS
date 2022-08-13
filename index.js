@@ -76,7 +76,7 @@ function guardarMate(){
     let coberturaInput = document.getElementById("coberturaInput")
     let baseInput = document.getElementById("baseInput")
     let precioInput = document.getElementById("precioInput")
-    let mateCreado = new Mates(estanteria.length+1, nombreInput.value, virolaInput.value, coberturaInput.value, baseInput.value, precioInput.value, "./assets/mateNuevo.jpg")
+    let mateCreado = new Mates(estanteria.length+1, nombreInput.value, virolaInput.value, coberturaInput.value, baseInput.value, precioInput.value, "assets/mateNuevo.jpg")
     //Push de libroCreado al array
     estanteria.push(mateCreado)
 }
