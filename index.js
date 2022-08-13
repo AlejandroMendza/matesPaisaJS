@@ -10,10 +10,10 @@ class Mates {
         (this.precio = precio),
         (this.imagen = imagen)
     }
-    //Método de la class
-    mostrarDatos() {
-      console.log(
-        `El mate ${this.tipo} cuenta con una virola de ${this.virola} cobertura de ${this.cobertura}, base de ${this.base} y su precio es $ ${this.precio}. La id del mate es ${this.id}`);
+//Método de la class
+mostrarDatos() {
+    console.log(
+    `El mate ${this.tipo} cuenta con una virola de ${this.virola} cobertura de ${this.cobertura}, base de ${this.base}`);
     }
   }
  //Array
@@ -33,10 +33,11 @@ class Mates {
   const mate4 = new Mates(4,"Acero Inox","acero pulido","acero pintado al relieve","acero pulido",3000, "assets/aceroInox.jpg");
   estanteria.push(mate4);
 
+  //Plantillas
 let divProductos = document.getElementById ("productos")
 divProductos.setAttribute ("class", "productosEstilos")
-
-estanteria.forEach ((mate)=> {
+function mostrarCatalogo(){
+    estanteria.forEach ((mate)=> {
     let nuevoProducto = document.createElement("div")
     nuevoProducto.innerHTML= ` <article id="${mate.id}" class="container">
                                     <div class="card">
@@ -44,10 +45,42 @@ estanteria.forEach ((mate)=> {
                                         <img src="${mate.imagen}" alt="${mate.tipo}"
                                         <div class="content">
                                             <p class="precioCard"> Precio: ${mate.precio}</p>
-                                            <a href="" target="blank"> Agregar al carrito</a>
+                                            <p></p>
+                                            <button href="" class="agregarBtn"> Agregar al carrito</button>
                                         </div>
                                     </div>
                                 </article>`
 
     divProductos.appendChild (nuevoProducto)
 })
+
+let btnAgregar = document.getElementsByClassName("agregarBtn")
+btnAgregar.forEach((libroBoton)=>{
+  libroBoton.addEventListener("click", ()=>{console.log(`Usted ha comprado éste mate`)})
+})
+}
+
+
+//Boton mostrar catálogo
+let mostrarCatalogoBtn = document.getElementById("verCatalogo")
+mostrarCatalogoBtn.addEventListener("click", mostrarCatalogo)
+
+//Boton ocultar catálogo
+let ocultarCatalogoBtn = document.getElementById("ocultarCatalogo")
+ocultarCatalogoBtn.onclick = ocultarCatalogo
+
+//Función crear nuevo mate por el usuario 
+function guardarMate(){
+    let nombreInput = document.getElementById("nombreInput")
+    let virolaInput = document.getElementById("virolaInput")
+    let coberturaInput = document.getElementById("coberturaInput")
+    let baseInput = document.getElementById("baseInput")
+    let precioInput = document.getElementById("precioInput")
+    let mateCreado = new Mates(estanteria.length+1, nombreInput.value, virolaInput.value, coberturaInput.value, baseInput.value, precioInput.value, "./assets/mateNuevo.jpg")
+    //Push de libroCreado al array
+    estanteria.push(mateCreado)
+}
+
+//Capturo guardarLibro boton y asignamos evento
+const guardarMateBtn = document.getElementById("guardarMateBtn")
+guardarMateBtn.addEventListener("click", guardarMate)
