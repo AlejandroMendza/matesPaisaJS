@@ -105,7 +105,8 @@ function mostrarCatalogo(){
     })
 }
 
-  //Boton mostrar catálogo
+
+//Boton mostrar catálogo
   let mostrarCatalogoBtn = document.getElementById("verCatalogo")
   mostrarCatalogoBtn.addEventListener("click", mostrarCatalogo)
   
