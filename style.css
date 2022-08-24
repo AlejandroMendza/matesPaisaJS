@@ -15,6 +15,13 @@ h1 {
     margin-right: 4rem;
 }
 
+.ofertaColor { 
+    color: maroon}
+
+.precioComun {
+    color: green
+}
+
 /*estilos de cards*/
 .container {
     width: 100%;

@@ -77,6 +77,17 @@ if(localStorage.getItem("carrito")){
     localStorage.setItem("carrito",[])
 }
 
+//DESESTRUCTURAR ARRAY EJEMPLO
+let [a, ,b , c] = estanteria
+console.log(a)
+console.log(b)
+console.log(c)
+console.log(estanteria)
+
+//Buscar por título para aplicar operador Nullish
+let tipoBuscado = estanteria.find(mate => mate.tipo == "Imperial") ?? "No tenemos ese libro en stock"
+console.log(tituloBuscado)
+
 //Plantillas
 
 let divProductos = document.getElementById ("productos")
@@ -90,7 +101,7 @@ function mostrarCatalogo(){
                                         <h3 class="titulocard"> ${mate.tipo} </h3>
                                         <img src="${mate.imagen}" alt="${mate.tipo}"
                                         <div class="content">
-                                            <p class="precioCard"> Precio: ${mate.precio}</p>
+                                            <p class="precioCard"  ${libro.precio <= 4500 ? "ofertaColor" : "precioComun"} "> Precio: ${mate.precio}</p>
                                             <p>El mate ${mate.tipo} cuenta con una virola de ${mate.virola}, cobertura de ${mate.cobertura} y base de ${mate.base}</p>
                                             <button id="agregarBtn${mate.id}">Agregar al carrito<button>
                                         </div>
@@ -156,21 +167,19 @@ function cargarProductosCarrito(productosDelStorage) {
 })
 //Function del total
 //productosEnCarritos
-compraTotal(productosDelStorage)
+compraTotal(...productosDelStorage)
 }
 
-function compraTotal(productosTotal) {
+function compraTotal(...productosTotal) {
     acumulador = 0;
     //recorrer productosTotal
+    acumulador = productosTotal.reduce((acumulador, productoCarrito)=>{
+        return acumulador + productoCarrito.precio},0)
     productosTotal.forEach((productoCarrito)=>{
         acumulador += productoCarrito.precio 
     })
     console.log(acumulador)
-    //if acumulador = 0 o !=
-    if(acumulador == 0){
-        parrafoCompra.innerHTML = `<p>No hay productos en el carrito</p>`
-    }else{
-        parrafoCompra.innerHTML = `Importe de su compra ${acumulador}`
-    }
+//UTILIZACION DE TERNARIO
+    acumulador > 0 ? parrafoCompra.innerHTML = `Importe de su compra ${acumulador}`: parrafoCompra.innerHTML = `<p>No hay productos en el carrito</p>`
    
 }
